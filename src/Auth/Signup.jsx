@@ -1,29 +1,28 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { auth } from './Firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-
+import { UserAuth } from '../Context/AuthContext';
 
 const Signup = () => {
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const onSubmit = async (e) => {
-    e.preventDefault()
+  const { createUserAccount } = UserAuth();
 
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
-        navigate("/login");
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-      });
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    try {
+      await createUserAccount(email, password);
+      navigate('/compte');
+    } catch (e) {
+      setError(e.message);
+      console.log(e.message);
+    }
+  };
 
   return (
     <main>
@@ -43,6 +42,7 @@ const Signup = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder='Votre adresse mail...'
+                  autoComplete='current-email'
                 />
               </div>
 
@@ -57,12 +57,13 @@ const Signup = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder='Votre mot de passe...'
+                  autoComplete='current-password'
                 />
               </div>
 
               <button
                 type='submit'
-                onClick={onSubmit}
+                onClick={handleSubmit}
               >
                 S'enregistrer
               </button>
@@ -71,16 +72,14 @@ const Signup = () => {
 
             <p>
               Vous avez déjà un compte ? {' '}
-              <NavLink to="/login" >
-                Se connecter
-              </NavLink>
+              <NavLink to="/login" >Se connecter</NavLink>
             </p>
 
           </div>
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
