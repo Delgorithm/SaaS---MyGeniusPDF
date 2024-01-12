@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { UserAuth } from '../Context/AuthContext';
 
 const Login = () => {
@@ -55,7 +55,7 @@ const Login = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  placeholder='Votre mot de passe...'
+                  placeholder='**********'
                   autoComplete='current-password'
                 />
               </div>
@@ -77,6 +77,17 @@ const Login = () => {
           </div>
         </div>
       </section>
+
+      <div className='flex flex-col gap-5 mt-14'>
+        <p>
+          <Link to="/signup">Créer un compte</Link>
+        </p>
+        <p>
+          <Link to="/login">Se connecter</Link>
+        </p>
+
+      </div>
+
     </main>
   );
 };

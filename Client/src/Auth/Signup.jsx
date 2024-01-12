@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { auth } from './Firebase';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
+import { app, auth } from './Firebase';
 import { UserAuth } from '../Context/AuthContext';
+import { getDatabase, ref, set } from 'firebase/database';
+import { getAuth } from 'firebase/auth';
+
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // Firebase : Realtime Database
+  const db = getDatabase();
+  const userDataRef = ref(db, 'users/');
+
+  const auth = getAuth(app);
 
   const { createUserAccount } = UserAuth();
 
@@ -17,7 +26,20 @@ const Signup = () => {
 
     try {
       await createUserAccount(email, password);
+
+      const user = auth.currentUser;
+      const userId = user.uid;
+
+      await set(ref(userDataRef, userId), {
+        email: email,
+        password: password,
+      });
+
       navigate('/compte');
+      // await set(userDataRef, {
+      //   email: email,
+      //   password: password,
+      // });
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -56,7 +78,7 @@ const Signup = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  placeholder='Votre mot de passe...'
+                  placeholder='**********'
                   autoComplete='current-password'
                 />
               </div>
@@ -78,6 +100,17 @@ const Signup = () => {
           </div>
         </div>
       </section>
+
+
+      <div className='flex flex-col gap-5 mt-14'>
+        <p>
+          <Link to="/signup">Créer un compte</Link>
+        </p>
+        <p>
+          <Link to="/login">Se connecter</Link>
+        </p>
+
+      </div>
     </main>
   );
 };
