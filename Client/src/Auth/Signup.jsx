@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../Context/AuthContext';
-import { app, db, userDataRef } from './Firebase';
-import { ref, set, push } from 'firebase/database';
+import { userDataRef, dbFireStore, app } from './Firebase';
+import { set, push } from 'firebase/database';
+import { collection, addDoc } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
   const { createUserAccount } = UserAuth();
+  const [uid, setUid] = useState('');
+
+  // Récupérer l'instance d'authentification
+  const auth = getAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,11 +25,22 @@ const Signup = () => {
 
     try {
       await createUserAccount(email, password);
+      const user = await getAuth().currentUser;
+      const uid = user.uid;
+
       const userRef = push(userDataRef);
       set(userRef, {
         email: email,
-        password: password
+        password: password,
+        uid: uid,
       });
+      
+      const docRef = await addDoc(collection(dbFireStore, "users"), {
+        email: email,
+        password: password,
+        uid: uid,
+      });
+
       navigate('/compte');
     } catch (e) {
       setError(e.message);

@@ -1,8 +1,9 @@
 // Firebase.js
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref } from "firebase/database";
+import { getFirestore } from 'firebase/firestore';
 
 const apiKeyFirebase = import.meta.env.VITE_API_FIREBASE_KEY;
 const authDomainFirebase = import.meta.env.VITE_AUTH_KEY;
@@ -26,8 +27,20 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const auth = getAuth(app);  // Ensure you get the auth module correctly
+const auth = getAuth(app);
+// Realtime database
 const db = getDatabase(app);
 const userDataRef = ref(db, 'users/');
 
-export { app, analytics, auth, db, userDataRef };
+onAuthStateChanged(auth, (user) => {
+  if(user) {
+    const uid = user.uid;
+  } else {
+    console.log('ça ne fonctionne pas');
+  }
+})
+
+// Firestore database
+const dbFireStore = getFirestore(app);
+
+export { app, analytics, auth, db, userDataRef, dbFireStore };

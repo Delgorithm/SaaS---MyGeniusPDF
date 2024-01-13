@@ -22,8 +22,8 @@ export const AuthContextProvider = ({children}) => {
         }
     };
 
-    const login = (fullname, email, password) => {
-        return signInWithEmailAndPassword(auth, fullname, email ,password)
+    const login = ( email, password) => {
+        return signInWithEmailAndPassword(auth, email ,password)
     }
 
     const logout = () => {
