@@ -1,22 +1,14 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate, Link } from 'react-router-dom';
-import { app, auth } from './Firebase';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../Context/AuthContext';
-import { getDatabase, ref, set } from 'firebase/database';
-import { getAuth } from 'firebase/auth';
-
+import { app, db, userDataRef } from './Firebase';
+import { ref, set, push } from 'firebase/database';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
-
-  // Firebase : Realtime Database
-  const db = getDatabase();
-  const userDataRef = ref(db, 'users/');
-
-  const auth = getAuth(app);
 
   const { createUserAccount } = UserAuth();
 
@@ -26,20 +18,12 @@ const Signup = () => {
 
     try {
       await createUserAccount(email, password);
-
-      const user = auth.currentUser;
-      const userId = user.uid;
-
-      await set(ref(userDataRef, userId), {
+      const userRef = push(userDataRef);
+      set(userRef, {
         email: email,
-        password: password,
+        password: password
       });
-
       navigate('/compte');
-      // await set(userDataRef, {
-      //   email: email,
-      //   password: password,
-      // });
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -53,6 +37,25 @@ const Signup = () => {
           <div>
             <h1>S'inscrire</h1>
             <form>
+
+              {/* --- Full name---
+              <div>
+                <label htmlFor="fullname">
+                  Fullname
+                </label>
+                <input 
+                  type="text"
+                  label="Fullname"
+                  value={fullname}
+                  onChange={(e) => setFullname(e.target.value)}
+                  required
+                  placeholder='John doe...'
+                  autoComplete='current-fullname'
+                />
+              </div> */}
+
+
+              {/* --- Adresse mail --- */}
               <div>
                 <label htmlFor="email-address">
                   Adresse mail
@@ -68,6 +71,7 @@ const Signup = () => {
                 />
               </div>
 
+              {/* --- Mot de passe --- */}
               <div>
                 <label htmlFor="password">
                   Password
@@ -78,7 +82,7 @@ const Signup = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  placeholder='**********'
+                  placeholder='Votre mot de passe...'
                   autoComplete='current-password'
                 />
               </div>
@@ -100,17 +104,6 @@ const Signup = () => {
           </div>
         </div>
       </section>
-
-
-      <div className='flex flex-col gap-5 mt-14'>
-        <p>
-          <Link to="/signup">Créer un compte</Link>
-        </p>
-        <p>
-          <Link to="/login">Se connecter</Link>
-        </p>
-
-      </div>
     </main>
   );
 };
