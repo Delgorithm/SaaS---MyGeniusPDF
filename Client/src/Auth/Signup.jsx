@@ -5,8 +5,6 @@ import { userDataRef, dbFireStore, app } from './Firebase';
 import { set, push } from 'firebase/database';
 import { collection, addDoc } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +12,6 @@ const Signup = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const { createUserAccount } = UserAuth();
-  const [uid, setUid] = useState('');
 
   // Récupérer l'instance d'authentification
   const auth = getAuth();

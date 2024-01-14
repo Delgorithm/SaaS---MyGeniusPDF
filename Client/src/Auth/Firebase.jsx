@@ -1,7 +1,7 @@
 // Firebase.js
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { getDatabase, ref } from "firebase/database";
 import { getFirestore } from 'firebase/firestore';
 
@@ -31,14 +31,6 @@ const auth = getAuth(app);
 // Realtime database
 const db = getDatabase(app);
 const userDataRef = ref(db, 'users/');
-
-onAuthStateChanged(auth, (user) => {
-  if(user) {
-    const uid = user.uid;
-  } else {
-    console.log('ça ne fonctionne pas');
-  }
-})
 
 // Firestore database
 const dbFireStore = getFirestore(app);
