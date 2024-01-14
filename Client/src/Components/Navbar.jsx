@@ -14,14 +14,14 @@ const Navbar = () => {
             <div className='w-[30%] border-b-2 rounded-xl'>
                 <ul>
                     <li className='flex justify-around'>
-                        <a clhref="">Features</a>
-                        <a href="">Avis</a>
-                        <a href="">Prix</a>
+                        <a href="#features" className='p-2 transition duration-100 hover:-translate-y-0.5 hover:text-[#9f54ff]'>Features</a>
+                        <a href="#avis" className='p-2 transition duration-100 hover:-translate-y-0.5 hover:text-[#9f54ff]'>Avis</a>
+                        <a href="#prix" className='p-2 transition duration-100 hover:-translate-y-0.5 hover:text-[#9f54ff]'>Prix</a>
                     </li>
                 </ul>
             </div>
             <div className='flex items-center gap-6'>
-                <a href="">Se connecter</a>
+                <a href="" className='hover:text-[#9f54ff]'>Se connecter</a>
                 <BtnCTA>Essayer</BtnCTA>
             </div>
         </section>
