@@ -7,7 +7,7 @@ const Hero = () => {
         <section className='relative'>
             <div className='flex flex-col items-center'>
                 <h1 className='text-6xl m-4'>
-                    <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Interoggez</span> Vos <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Documents</span> Avec l'<span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>IA</span>
+                    <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Interrogez</span> Vos <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Documents</span> Avec l'<span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>IA</span>
                     {/* bg-gradient-to-b from-[#92919A] to-[#020014] */}
                 </h1>
                 <p className='pt-4 text-xs font-bold'>Une Solution Innovante basée sur l'IA pour Simplifier le Traitement de vos PDF.</p>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 import Hero from '../Components/Hero'
+import Features from '../Components/Features'
 
 const Mygeniuspdf = () => {
   return (
@@ -11,6 +12,8 @@ const Mygeniuspdf = () => {
         <Navbar />
         <div className='h-12'></div>
         <Hero />
+        <div className='h-12'></div>
+        <Features />
         <h1>MyGeniusPDF</h1>
         <div className='flex flex-col gap-5'>
           <p>
