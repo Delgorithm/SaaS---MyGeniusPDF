@@ -4,6 +4,8 @@ import Navbar from '../Components/Navbar'
 import Hero from '../Components/Hero'
 import Features from '../Components/Features'
 import Testimonials from '../Components/Testimonials'
+import Pricing from '../Components/Pricing'
+import FAQ from '../Components/FAQ'
 
 const Mygeniuspdf = () => {
   return (
@@ -17,6 +19,10 @@ const Mygeniuspdf = () => {
         <Features />
         <div className='h-12'></div>
         <Testimonials />
+        <div className='h-12'></div>
+        <Pricing />
+        <div className='h-12'></div>
+        <FAQ />
         <div className='flex flex-col gap-5'>
           <p>
             <Link to="/signup">Créer un compte</Link>

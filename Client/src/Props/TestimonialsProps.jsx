@@ -2,15 +2,15 @@ import React from 'react'
 
 const TestimonialsProps = (props) => {
   return (
-    <div className='flex flex-col mx-12 my-3 p-10 gap-6 w-[40%] justify-center rounded-xl bg-red-300'>
-        <p>{props.opinion}</p>
+    <div className='flex flex-col p-5 gap-5 justify-center w-96 rounded-xl shadow-lg border-[0.5px] border-[#ebebeb] bg-gradient-to-t from-[#f0f0ff] to-[#ffffff]'>
+        <p className='text-center'>{props.opinion}</p>
         <div className=' flex items-center gap-2'>
             <picture>
-                <img src={props.profilPicture} alt="Client's profil picture" className='rounded-full w-24 h-24 object-cover' />
+                <img src={props.profilPicture} alt="Client's profil picture" className='rounded-full w-20 h-20 object-cover' />
             </picture>
             <div className='flex flex-col'>
-                <p>{props.name}</p>
-                <p>{props.role}</p>
+                <p className='font-bold'>{props.name}</p>
+                <p className='font-extralight text-sm'>{props.role}</p>
             </div>
         </div>
     </div>

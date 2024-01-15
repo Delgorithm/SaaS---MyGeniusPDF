@@ -17,6 +17,7 @@ const Navbar = () => {
                         <a href="#features" className='p-2 transition duration-100 hover:-translate-y-0.5 hover:text-[#9f54ff]'>Features</a>
                         <a href="#avis" className='p-2 transition duration-100 hover:-translate-y-0.5 hover:text-[#9f54ff]'>Avis</a>
                         <a href="#prix" className='p-2 transition duration-100 hover:-translate-y-0.5 hover:text-[#9f54ff]'>Prix</a>
+                        <a href="#faq" className='p-2 transition duration-100 hover:-translate-y-0.5 hover:text-[#9f54ff]'>FAQ</a>
                     </li>
                 </ul>
             </div>
