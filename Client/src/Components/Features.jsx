@@ -6,7 +6,7 @@ const Features = () => {
     <main>
       <section>
         <div className='flex flex-col items-center align-center'>
-          <h2 id='features' className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text text-4xl'>Features</h2>
+          <h2 id='features' className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text text-4xl font-bold'>Features</h2>
           <h4 className='pt-4 text-2xl'>
             <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Découvrez</span> et <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Analysez</span> vos documents en <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Discutant</span> avec
           </h4>
@@ -55,7 +55,7 @@ const Features = () => {
           <p className='relative -top-5 text-center font-light'>Explorez une nouvelle façon d'intéragir avec vos documents grâce à l'analyse conversationnelle <br />et à l'IA avancée</p>
           <section className='flex justify-around items-center gap-10 w-[60%]'>
             <div className='flex flex-col items-center'>
-              <p className='text-5xl bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text font-bold'>200+</p>
+              <p className='text-5xl bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text font-bold'>450+</p>
               <p>Projets complétés</p>
             </div>
             <div className='flex flex-col items-center'>

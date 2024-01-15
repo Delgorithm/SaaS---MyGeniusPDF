@@ -17,7 +17,6 @@ const Mygeniuspdf = () => {
         <Features />
         <div className='h-12'></div>
         <Testimonials />
-        <h1>MyGeniusPDF</h1>
         <div className='flex flex-col gap-5'>
           <p>
             <Link to="/signup">Créer un compte</Link>
