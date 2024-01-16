@@ -20,7 +20,7 @@ const Hero = () => {
                 <picture>
                     <img src="./Img/socialProof2.svg" alt="Social Proof" />
                 </picture>
-                <p className='m-6 font-light'><span>(</span>Utilisé par plus de 300<span>)</span></p>
+                <p className='m-6 font-light'><span>(</span>Utilisé par plus de 300 utilisateurs<span>)</span></p>
                 <picture>
                     <img src="./Img/socialProof.svg" alt="Social Proof" />
                 </picture>

@@ -12,7 +12,7 @@ const Pricing = () => {
         <section className='flex m-10 p-4 gap-10'>
           <div className='flex gap-10'>
             {firstSecondPrice.map((prices) => (
-              <div className='w-80 bg-gradient-to-t from-[#eeeeef] to-[#ffffff] border-[0.5px] border-[#e5e2e9] rounded-3xl'>
+              <div className='w-80 bg-gradient-to-t from-[#eeeeef] to-[#ffffff] border-[0.5px] border-[#e5e2e9] rounded-3xl transition duration-200 hover:scale-105'>
                   <PricingProps
                   key={prices.id}
                   title={prices.title}
@@ -31,7 +31,7 @@ const Pricing = () => {
           </div>
           <div className=''>
             {thirdPrice.map((prices) => (
-                <div className='w-80 bg-gradient-to-b from-[#0E063E] to-[#6125AE] text-[#ffffff] border-[0.5px] border-[#e5e2e9] rounded-3xl'>
+                <div className='w-80 bg-gradient-to-b from-[#0E063E] to-[#6125AE] text-[#ffffff] border-[0.5px] border-[#e5e2e9] rounded-3xl transition duration-200 hover:scale-105'>
                     <PricingProps
                     key={prices.id}
                     title={prices.title}
