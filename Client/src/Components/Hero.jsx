@@ -27,7 +27,7 @@ const Hero = () => {
             </div>
 
             {/* --- Styling --- */}
-            <div className='absolute top-[80vh] left-0 w-screen h-96 bg-grid-pattern -z-50'></div>
+            {/* <div className='absolute top-[80vh] left-0 w-screen h-96 bg-grid-pattern -z-50'></div> */}
             <picture>
                 <img src="./Img/ellipse.svg" alt="" className='absolute -top-40 -z-50' />
             </picture>

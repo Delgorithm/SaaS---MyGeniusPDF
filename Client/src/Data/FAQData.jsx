@@ -11,7 +11,7 @@ const FaqFullData = [
     },
     {
         id: 3,
-        question: `Comment PDFGeniusAI assure-t-il la sécurité des documents dans le Stockage Cloud ?`,
+        question: `Comment PDFGeniusAI assure-t-il la sécurité des documents ?`,
         answer: `Vos documents sont en sécurité dans le Stockage Cloud Sécurisé de PDFGeniusAI, qui offre un environnement hautement sécurisé pour vos données.`,
     },
     {

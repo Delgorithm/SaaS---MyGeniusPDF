@@ -6,11 +6,11 @@ import Features from '../Components/Features'
 import Testimonials from '../Components/Testimonials'
 import Pricing from '../Components/Pricing'
 import FAQ from '../Components/FAQ'
+import Footer from '../Components/Footer'
 
 const Mygeniuspdf = () => {
   return (
     <main className='relative overflow-hidden'>
-      <div className='absolute -top-10 left-0 w-screen h-96 bg-grid-pattern -z-50'></div>
       <section className='z-1'>
         <Navbar />
         <div className='h-12'></div>
@@ -23,14 +23,8 @@ const Mygeniuspdf = () => {
         <Pricing />
         <div className='h-12'></div>
         <FAQ />
-        <div className='flex flex-col gap-5'>
-          <p>
-            <Link to="/signup">Créer un compte</Link>
-          </p>
-          <p>
-            <Link to="/login">Se connecter</Link>
-          </p>
-        </div>
+        <div className='h-12'></div>
+        <Footer />
       </section>
     </main>
   )
