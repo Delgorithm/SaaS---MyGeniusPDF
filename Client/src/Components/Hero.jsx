@@ -31,6 +31,10 @@ const Hero = () => {
             <picture>
                 <img src="./Img/ellipse.svg" alt="" className='absolute -top-40 -z-50' />
             </picture>
+
+            <picture>
+                <img src="./Img/Ellipseright.svg" alt="" className='absolute -top-80 right-0' />
+            </picture>
         </section>
     </main>
   )

@@ -4,14 +4,14 @@ import BtnCTA from './BtnCTA'
 const Features = () => {
   return (
     <main>
-      <section id='features'>
+      <section id='features' className='relative'>
         <div className='flex flex-col items-center align-center'>
           <h2  className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text text-4xl font-bold'>Features</h2>
           <h4 className='pt-4 text-2xl'>
             <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Découvrez</span> et <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Analysez</span> vos documents en <span className='bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text'>Discutant</span> avec
           </h4>
           <p className='pt-4 text-xs font-bold'>Une approche novatrice pour intéragir de manière conversationnelle avec vos documents</p>
-          <picture className='relative flex flex-col items-center -z-50 -top-24'>
+          <picture className='relative flex flex-col items-center z-10 -top-24'>
             <img src="./Img/MacAndIphone.svg" alt="MacBookPro16' and iPhone 15" className='w-screen'/>
           </picture>
 
@@ -53,7 +53,7 @@ const Features = () => {
           <div className='relative -top-20 w-20 h-8 rounded-full bg-gradient-to-l from-[#E6E6E8] to-[#e4e4e4] border-[0.5px] border-[#b2b2b2] shadow-2xl flex items-center justify-center text-2xl'>✨</div>
           <h5 className='relative -top-10 text-2xl'>Comprenez en profondeur vos documents</h5>
           <p className='relative -top-5 text-center font-light'>Explorez une nouvelle façon d'intéragir avec vos documents grâce à l'analyse conversationnelle <br />et à l'IA avancée</p>
-          <section className='flex justify-around items-center gap-10 w-[60%]'>
+          <section className='flex justify-around items-center gap-10 w-[60%] z-10'>
             <div className='flex flex-col items-center'>
               <p className='text-5xl bg-gradient-to-l from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text font-bold'>450+</p>
               <p>Projets complétés</p>
@@ -74,6 +74,13 @@ const Features = () => {
             </div>
             <BtnCTA>Essayer gratuitement</BtnCTA>
           </section>
+        </div>
+
+        {/* --- Img supplémentaires --- */}
+        <div>
+          <picture>
+            <img src="./Img/Ellipseleft.svg" alt="" className='absolute z-20 top-0 left-0' />
+          </picture>
         </div>
       </section>
     </main>

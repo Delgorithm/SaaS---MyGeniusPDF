@@ -11,20 +11,22 @@ import Footer from '../Components/Footer'
 const Mygeniuspdf = () => {
   return (
     <main className='relative overflow-hidden'>
-      <section className='z-1'>
-        <Navbar />
-        <div className='h-12'></div>
-        <Hero />
-        <div className='h-12'></div>
-        <Features />
-        <div className='h-12'></div>
-        <Testimonials />
-        <div className='h-12'></div>
-        <Pricing />
-        <div className='h-12'></div>
-        <FAQ />
-        <div className='h-12'></div>
-        <Footer />
+      <section className='bg-grid-pattern -z-50'>
+        <div className='z-10'>
+          <Navbar />
+          <div className='h-12'></div>
+          <Hero />
+          <div className='h-12'></div>
+          <Features />
+          <div className='h-12'></div>
+          <Testimonials />
+          <div className='h-12'></div>
+          <Pricing />
+          <div className='h-12'></div>
+          <FAQ />
+          <div className='h-12'></div>
+          <Footer />
+        </div>
       </section>
     </main>
   )

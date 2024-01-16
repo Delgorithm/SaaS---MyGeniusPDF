@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'grid-pattern': "url(/Img/bgfull.svg)"
+        'grid-pattern': "url(/Img/bggridhero.svg)"
       },
     },
   },
