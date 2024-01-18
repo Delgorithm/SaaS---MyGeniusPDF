@@ -16,7 +16,7 @@ const App = () => {
         <Route path='/signup' element={ < Signup/>} />
         <Route path='/login' element={ < Login/>} />
         <Route path='/paiement' element={ < PaymentStripe/>} />
-        <Route path='/compte' element={ < Account/>} />
+        <Route path='/account' element={ < Account/>} />
         <Route path='/application' element={ < Application/>} />
       </Routes>
     </AuthContextProvider>

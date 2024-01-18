@@ -1,5 +1,5 @@
 // Main imports for authentification
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../Context/AuthContext';
 import { userDataRef, dbFireStore, app } from './Firebase';
@@ -83,7 +83,7 @@ const Signup = () => {
         uid: uid,
       });
 
-      navigate('/compte');
+      navigate('/account');
 
     } catch(error) {
         const errorCocde = error.code;

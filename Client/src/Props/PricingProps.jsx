@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const PricingProps = (props) => {
   return (
@@ -32,7 +33,9 @@ const PricingProps = (props) => {
         </div>
       </div>
       <span className='self-center w-[70%] text-center h-0.5 bg-[#cecece] mt-4'></span>
-      <button className='mt-4 p-2 rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5'>{props.btnOffer}</button>
+      <Link to="/signup" className='flex justify-center mt-4 p-2 rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5'>
+        <button>{props.btnOffer}</button>
+      </Link>
     </main>
   )
 }
