@@ -52,7 +52,14 @@ const Login = () => {
       const userDocSnapshot = await getDoc(userDocRef);
 
       if (!userDocSnapshot.exists()) {
+        // Pour firestore
         await setDoc(userDocRef, {
+          email: email,
+          uid: uid,
+        });
+
+        // pour realtime database
+        await set(userRealtimeRef, {
           email: email,
           uid: uid,
         });

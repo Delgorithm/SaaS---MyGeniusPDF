@@ -1,5 +1,6 @@
 import React from 'react'
 import BtnCTA from './BtnCTA'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
   return (
@@ -22,7 +23,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className='flex items-center gap-6'>
-                <a href="" className='hover:text-[#9f54ff]'>Se connecter</a>
+                <Link to="/login">
+                    <p className='hover:text-[#9f54ff]'>Se connecter</p>
+                </Link>
                 <BtnCTA>Essayer</BtnCTA>
             </div>
         </section>

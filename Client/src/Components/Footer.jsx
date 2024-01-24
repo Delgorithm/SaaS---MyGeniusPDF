@@ -31,9 +31,9 @@ const Footer = () => {
                         <li className='flex flex-col text-right gap-2'>
                             <p className='font-bold'>Navigation</p>
                             <a href="#features" className='font-light transition duration-100 hover:text-[#9f54ff]'>Features</a>
-                            <a href="avis" className='font-light transition duration-100 hover:text-[#9f54ff]'>Avis</a>
-                            <a href="prix" className='font-light transition duration-100 hover:text-[#9f54ff]'>Prix</a>
-                            <a href="faq" className='font-light transition duration-100 hover:text-[#9f54ff]'>FAQ</a>
+                            <a href="#avis" className='font-light transition duration-100 hover:text-[#9f54ff]'>Avis</a>
+                            <a href="#prix" className='font-light transition duration-100 hover:text-[#9f54ff]'>Prix</a>
+                            <a href="#faq" className='font-light transition duration-100 hover:text-[#9f54ff]'>FAQ</a>
                         </li>
                     </ul>
                 </div>
