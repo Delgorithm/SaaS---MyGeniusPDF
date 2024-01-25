@@ -27,7 +27,7 @@ const Login = () => {
 
     try {
       await login(email, password);
-      navigate('/account')
+      navigate('/application')
     } catch (e) {
       setError(e.message);
       console.log(e.message)

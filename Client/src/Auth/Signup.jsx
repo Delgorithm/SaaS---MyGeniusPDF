@@ -50,7 +50,7 @@ const Signup = () => {
         uid: uid,
       });
 
-      navigate('/compte');
+      navigate('/application');
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -83,7 +83,7 @@ const Signup = () => {
         uid: uid,
       });
 
-      navigate('/account');
+      navigate('/application');
 
     } catch(error) {
         const errorCocde = error.code;

@@ -1,11 +1,12 @@
   import React, { useState } from 'react'
-  import { CiHome } from "react-icons/ci";
+  import { CiHome, CiPercent } from "react-icons/ci";
   import { GoPerson } from "react-icons/go";
   import { CiCreditCard2 } from "react-icons/ci";
   import { CiSettings } from "react-icons/ci";
   import { CiSaveDown2 } from "react-icons/ci";
   import { TiArrowUp } from "react-icons/ti";
   import { Link } from 'react-router-dom';
+  import { RiAttachment2 } from "react-icons/ri";
 import PDFContent from '../Components/PDFContent';
 
   const Application = () => {
@@ -33,11 +34,26 @@ import PDFContent from '../Components/PDFContent';
               <p>Menu</p>
               <ul>
                 <li className='flex flex-col'>
-                  <a href="">Home</a>
-                  <a href="">Mon profil</a>
-                  <a href="">Paiement</a>
-                  <a href="">Paramètres</a>
-                  <a href="">Page d'accueil</a>
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiHome />
+                    <a href="">Home</a>
+                  </span>
+                  <span className='flex justify-center items-center gap-2'>
+                    <GoPerson />
+                    <a href="">Mon profil</a>
+                  </span>
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiPercent />
+                    <a href="">Paiement</a>
+                  </span>
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiSettings />
+                    <a href="">Paramètres</a>
+                  </span>
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiHome />
+                    <a href="">Page d'accueil</a>
+                  </span>
                 </li>
               </ul>
             </div>
@@ -75,7 +91,18 @@ import PDFContent from '../Components/PDFContent';
           <div className='flex flex-col items-center border-t-[0.5px] border-[#ECECEC]'>
             <form className='w-3/4 p-2'>
               <div className='flex items-center px-2 py-2 rounded-lg'>
+                
+                {/* --- Input for a pdf file --- */}
+                <label htmlFor="dropzone-file" className='inline-flex justify-center items-center p-0.5 mr-2 bg-white rounded cursor-pointer hover:opacity-80 active:scale-95'>
+                  <button className='text-4xl flex justify-center items-center' onClick={handleFileChange}>
+                    <RiAttachment2 />
+                  </button>
+                </label>
+
+                {/* --- Input for the text --- */}
                 <textarea id="chat" rows="1" className="block  p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500" placeholder="Message pour MyGeniusPDF..."></textarea>
+
+                {/* --- Button to post the question --- */}
                 <button type="submit" className="inline-flex justify-center items-center p-0.5 ml-2 bg-white rounded cursor-pointer hover:opacity-80 active:scale-95">
                   <span className='text-4xl flex justify-center items-center'>
                     <TiArrowUp />
