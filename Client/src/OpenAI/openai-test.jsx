@@ -1,15 +1,38 @@
-import React from 'react'
-import OpenAI from 'openai'
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
-const openai = new OpenAI();
+const { Configuration, OpenAIApi } = require('openai');
 
-async function main() {
-    const completion = await open.chait.completions.create({
-        messages: [{ role: 'system', content: 'You are a helpful assistant'}],
-        model: "gpt-3.5-turbo",
+const openAiApiKey = import.meta.env.VITE_OPENAI_KEY_SECRET;
+
+const config = new Configuration({
+    openAiApiKey,
+})
+
+const openai = new OpenAIApi(config);
+
+// Setup server
+const app = express();
+app.use(bodyParser.json());
+app.use(cors());
+
+// endpoint for ChatGpt
+app.post('/chat'), async(req, res) => {
+    
+    const { prompt } = req.body;
+
+    const completion = await openai.createCompletion({
+        model: "text-davinci-003",
+        max_tokens: 512,
+        temperature: 0,
+        prompt: prompt,
     });
 
-    console.log(completion.choices[0]);
+    res.send(completion.data.choices[0].text);
 }
 
-main();
+const port = 5173;
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+});

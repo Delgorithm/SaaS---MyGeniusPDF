@@ -10,7 +10,7 @@ const FAQ = () => {
           {FaqFullData.map((faqs) => (
             <div className='m-2 flex flex-col'>
               <FAQProps
-                key={faqs.id}
+                key={faqs}
                 question={faqs.question}
                 answer={faqs.answer}
               />  

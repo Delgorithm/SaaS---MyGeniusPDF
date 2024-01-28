@@ -14,7 +14,7 @@ const Pricing = () => {
             {firstSecondPrice.map((prices) => (
               <div className='w-80 bg-gradient-to-t from-[#eeeeef] to-[#ffffff] border-[0.5px] border-[#e5e2e9] rounded-3xl transition duration-200 hover:scale-105'>
                   <PricingProps
-                  key={prices.id}
+                  key={prices}
                   title={prices.title}
                   price={prices.price}
                   month={prices.month}
@@ -33,7 +33,7 @@ const Pricing = () => {
             {thirdPrice.map((prices) => (
                 <div className='w-80 bg-gradient-to-b from-[#0E063E] to-[#6125AE] text-[#ffffff] border-[0.5px] border-[#e5e2e9] rounded-3xl transition duration-200 hover:scale-105'>
                     <PricingProps
-                    key={prices.id}
+                    key={prices}
                     title={prices.title}
                     popularity={prices.popularity}
                     price={prices.price}

@@ -7,6 +7,7 @@ import PaymentStripe from './Pages/PaymentStripe';
 import Account from './Auth/Account';
 import Application from './Pages/Application';
 import { AuthContextProvider } from './Context/AuthContext';
+import Test from './Pages/Test';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/paiement' element={ < PaymentStripe/>} />
         <Route path='/account' element={ < Account/>} />
         <Route path='/application' element={ < Application/>} />
+        <Route path='/test' element={ < Test/>} />
       </Routes>
     </AuthContextProvider>
   )

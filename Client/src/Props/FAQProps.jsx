@@ -5,7 +5,7 @@ const FAQProps = (props) => {
     const [accordionOpen, setAccordionOpen] = useState(false);
 
     return (
-        <div className=''>
+        <div>
             <button
                 onClick={() => setAccordionOpen(!accordionOpen)}
                 className='flex justify-between w-full items-center'
