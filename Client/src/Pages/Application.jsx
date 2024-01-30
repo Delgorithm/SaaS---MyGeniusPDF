@@ -8,8 +8,6 @@ import { TiArrowUp } from "react-icons/ti";
 import { Link } from 'react-router-dom';
 import { RiAttachment2 } from "react-icons/ri";
 import PDFContent from '../Components/PDFContent';
-import axios from 'axios'
-
 
 const Application = () => {
 
@@ -17,18 +15,6 @@ const Application = () => {
 
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post('http://localhost:5173/application', { prompt })
-      .then((res) => {
-        setResponse(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  };
 
   const handleFileChange = (e) => {
     e.preventDefault();
@@ -42,7 +28,7 @@ const Application = () => {
       {/* --- Left part : Sidebar --- */}
       <section className='bg-[#222131] w-1/6 h-screen border-r-[0.5px] border-[#ECECEC] flex flex-col text-white'>
         <div className='flex flex-col pl-6 pt-10 h-3/5'>
-          <Link to="/">
+          <Link to="/application">
             <div className='flex items-center gap-2'>
                 <img src="./Img/logo-big.svg" alt="MyGeniusPDF's logo" />
                 <p className='text-xl'>MyGeniusPDF</p>
@@ -51,27 +37,41 @@ const Application = () => {
           <div className='flex flex-col gap-4'>
             <p>Menu</p>
             <ul>
-              <li className='flex flex-col'>
-                <span className='flex justify-center items-center gap-2'>
-                  <CiHome />
-                  <a href="">Home</a>
-                </span>
-                <span className='flex justify-center items-center gap-2'>
-                  <GoPerson />
-                  <a href="">Mon profil</a>
-                </span>
-                <span className='flex justify-center items-center gap-2'>
-                  <CiCreditCard2 />
-                  <a href="">Paiement</a>
-                </span>
-                <span className='flex justify-center items-center gap-2'>
-                  <CiSettings />
-                  <a href="">Paramètres</a>
-                </span>
-                <span className='flex justify-center items-center gap-2'>
-                  <CiHome />
-                  <a href="">Page d'accueil</a>
-                </span>
+              <li className='flex flex-col items-start gap-4 text-xl'>
+                <Link to="/application">
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiHome />
+                    <p>Home</p>
+                  </span>
+                </Link>
+
+                <Link to="profil">
+                  <span className='flex justify-center items-center gap-2'>
+                    <GoPerson />
+                    <p>Mon profil</p>
+                  </span>
+                </Link>
+
+                <Link to="/abonnement">
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiCreditCard2 />
+                    <p>Abonnement</p>
+                  </span>
+                </Link>
+
+                <Link to="/settings">
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiSettings />
+                    <p>Paramètres</p>
+                  </span>
+                </Link>
+
+                <Link to="/">
+                  <span className='flex justify-center items-center gap-2'>
+                    <CiHome />
+                    <p>Page d'accueil</p>
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -127,7 +127,6 @@ const Application = () => {
                 id="chat" 
                 type='text' 
                 value={prompt} 
-                onSubmit={(e) => handleSubmit(e)} 
                 onChange={(e) => setPrompt(e.target.value)} 
                 className="block  p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-500 focus:ring-blue-500 focus:border-blue-500" 
                 placeholder="Message pour MyGeniusPDF..." 
@@ -138,7 +137,6 @@ const Application = () => {
                 type='submit'
                 value="submit" 
                 className="inline-flex justify-center items-center p-0.5 ml-2 bg-white rounded cursor-pointer hover:opacity-80 active:scale-95" 
-                onSubmit={(e) => handleSubmit(e)}
               >
                 <span className='text-4xl flex justify-center items-center'><TiArrowUp /></span> 
               </button>

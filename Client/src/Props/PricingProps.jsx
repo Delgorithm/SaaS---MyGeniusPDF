@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { UserAuth } from '../Context/AuthContext';
+
+// Si la personne n'est pas connecté && qu'elle clique sur le bouton formule (de son choix) ça va l'emmener à la page d'inscription puis une fois connecté ça l'emmenera à la page des formules
+
+// Si la personne est connecté && qu'elle clique sur le bouton formule (de son choix) ça va l'emmener à la page des formules
 
 const PricingProps = (props) => {
+
   return (
     <main className='flex flex-col h-[40rem] p-4 shadow-xl rounded-3xl'>
       <div className='flex items-center'>
@@ -33,6 +39,7 @@ const PricingProps = (props) => {
         </div>
       </div>
       <span className='self-center w-[70%] text-center h-0.5 bg-[#cecece] mt-4'></span>
+      
       <Link to="/signup" className='flex justify-center mt-4 p-2 rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5'>
         <button>{props.btnOffer}</button>
       </Link>
