@@ -2,3 +2,5 @@
 .DS_Store
 serviceAccountKey.json
 serviceAccountKey
+*.json
+!spec/*.json
