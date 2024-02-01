@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AuthContextProvider } from './Context/AuthContext';
 import Mygeniuspdf from './Pages/mygeniuspdf';
@@ -9,6 +9,8 @@ import Account from './Auth/Account';
 import Application from './Pages/Application';
 import Profil from './Pages/Profil';
 import NoMatch from './Pages/NoMatch';
+import Success from './Pages/Success';
+import Cancel from './Pages/Cancel';
 
 
 const App = () => {
@@ -17,6 +19,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={ <Mygeniuspdf/>} />
         <Route path='*' element={ <NoMatch/>} />
+        <Route path='/success' element={ <Success />} />
+        <Route path='/cancel' element={ <Cancel />} />
         <Route path='/signup' element={ <Signup/>} />
         <Route path='/login' element={ <Login/>} />
         <Route path='/application' element={ <Application/>} />
