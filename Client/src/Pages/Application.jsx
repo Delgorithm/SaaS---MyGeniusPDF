@@ -4,12 +4,28 @@ import { GoPerson } from "react-icons/go";
 import { CiCreditCard2 } from "react-icons/ci";
 import { CiSettings } from "react-icons/ci";
 import { CiSaveDown2 } from "react-icons/ci";
+import { CiLogout } from "react-icons/ci";
 import { TiArrowUp } from "react-icons/ti";
 import { Link } from 'react-router-dom';
 import { RiAttachment2 } from "react-icons/ri";
 import PDFContent from '../Components/PDFContent';
+import { UserAuth } from '../Context/AuthContext' 
+import { useNavigate } from 'react-router-dom';
 
 const Application = () => {
+
+  const {user, logout} = UserAuth();
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/');
+      console.log("Vous vous êtes déconnecté(e)");
+    } catch (e) {
+      console.log(e.message)
+    }
+  }
 
   const [pdfFile, setPdfFile] = useState(null);
 
@@ -26,60 +42,71 @@ const Application = () => {
     <main className='flex h-screen overflow-hidden'>
 
       {/* --- Left part : Sidebar --- */}
-      <section className='bg-[#222131] w-1/6 h-screen border-r-[0.5px] border-[#ECECEC] flex flex-col text-white'>
-        <div className='flex flex-col pl-6 pt-10 h-3/5'>
-          <Link to="/application">
-            <div className='flex items-center gap-2'>
-                <img src="./Img/logo-big.svg" alt="MyGeniusPDF's logo" />
-                <p className='text-xl'>MyGeniusPDF</p>
+      <section className='bg-[#666666] w-1/6 h-screen border-r-[0.5px] border-[#ECECEC] flex flex-col text-white'>
+        <div className='flex flex-col justify-between pl-6 pt-10 h-screen'>
+          <div>
+            <Link to="/application">
+              <div className='flex items-center gap-2'>
+                  <img src="./Img/logo-big.svg" alt="MyGeniusPDF's logo" />
+                  <p className='text-xl'>MyGeniusPDF</p>
+              </div>
+            </Link>
+            <div className='flex flex-col gap-4'>
+              <p>Menu</p>
+              <ul>
+                <li className='flex flex-col items-start gap-4 text-xl'>
+                  <Link to="/application">
+                    <span className='flex justify-center items-center gap-2'>
+                      <CiHome />
+                      <p>Home</p>
+                    </span>
+                  </Link>
+
+                  <Link to="profil">
+                    <span className='flex justify-center items-center gap-2'>
+                      <GoPerson />
+                      <p>Mon profil</p>
+                    </span>
+                  </Link>
+
+                  <Link to="abonnement">
+                    <span className='flex justify-center items-center gap-2'>
+                      <CiCreditCard2 />
+                      <p>Abonnement</p>
+                    </span>
+                  </Link>
+
+                  <Link to="/settings">
+                    <span className='flex justify-center items-center gap-2'>
+                      <CiSettings />
+                      <p>Paramètres</p>
+                    </span>
+                  </Link>
+
+                  <Link to="/">
+                    <span className='flex justify-center items-center gap-2'>
+                      <CiHome />
+                      <p>Page d'accueil</p>
+                    </span>
+                  </Link>
+                </li>
+              </ul>
             </div>
-          </Link>
-          <div className='flex flex-col gap-4'>
-            <p>Menu</p>
-            <ul>
-              <li className='flex flex-col items-start gap-4 text-xl'>
-                <Link to="/application">
-                  <span className='flex justify-center items-center gap-2'>
-                    <CiHome />
-                    <p>Home</p>
-                  </span>
-                </Link>
-
-                <Link to="profil">
-                  <span className='flex justify-center items-center gap-2'>
-                    <GoPerson />
-                    <p>Mon profil</p>
-                  </span>
-                </Link>
-
-                <Link to="/abonnement">
-                  <span className='flex justify-center items-center gap-2'>
-                    <CiCreditCard2 />
-                    <p>Abonnement</p>
-                  </span>
-                </Link>
-
-                <Link to="/settings">
-                  <span className='flex justify-center items-center gap-2'>
-                    <CiSettings />
-                    <p>Paramètres</p>
-                  </span>
-                </Link>
-
-                <Link to="/">
-                  <span className='flex justify-center items-center gap-2'>
-                    <CiHome />
-                    <p>Page d'accueil</p>
-                  </span>
-                </Link>
-              </li>
-            </ul>
+          </div>
+          <div className='mb-10 flex justify-around items-center'>
+            <p className='text-xl'>Email : {user && user.email}</p>
+            <button 
+              onClick={handleLogout}
+              className='text-3xl'
+            >
+              <CiLogout />
+            </button>
           </div>
         </div>
       </section>
 
       {/* --- Right part : Main part --- */}
-      <section className='flex flex-col w-5/6 h-screen bg-[#222131]'>
+      <section className='flex flex-col w-5/6 h-screen bg-[#b9b9b9]'>
 
         {/* --- Screen to see the pdf --- */}
 
@@ -91,7 +118,7 @@ const Application = () => {
               <div className='w-2/3 flex items-center justify-center'>
                 <PDFContent pdfFile={pdfFile} />
               </div>
-              <div className='w-2/5 mx-4 bg-[#393750]'>
+              <div className='w-2/5 mx-4 bg-[#666666] text-white'>
                 {response}
               </div>
             </section>
@@ -138,7 +165,9 @@ const Application = () => {
                 value="submit" 
                 className="inline-flex justify-center items-center p-0.5 ml-2 bg-white rounded cursor-pointer hover:opacity-80 active:scale-95" 
               >
-                <span className='text-4xl flex justify-center items-center'><TiArrowUp /></span> 
+                <span className='text-4xl flex justify-center items-center'>
+                  <TiArrowUp />
+                </span> 
               </button>
             </div>
           </form>

@@ -1,33 +1,22 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { UserAuth } from '../Context/AuthContext';
-
-// Si la personne n'est pas connecté && qu'elle clique sur le bouton formule (de son choix) ça va l'emmener à la page d'inscription puis une fois connecté ça l'emmenera à la page des formules
-
-// Si la personne est connecté && qu'elle clique sur le bouton formule (de son choix) ça va l'emmener à la page des formules
+import { useNavigate } from "react-router-dom";
 
 const PricingProps = (props) => {
 
-  const checkout = (plan) => {
-    fetch('http://localhost:5173/api/v1/create-subscription-checkout-session', {
-      method: "POST",
-      headers: {
-        "Content-Type" : "application/json",
-      },
-      mode: "cors",
-      body: JSON.stringify({plan: plan, customierId: userId})
-    })
-    .then((res) => {
-      if(res.ok) return res.json();
-      console.log(res);
-      return res.json().then((json) => Promise.reject(json));
-    })
-    .then(({session}) => {
-      window.location = session.url;
-    })
-    .catch((e) => {
-      console.log(e.error);
-    })
+  const {user} = UserAuth();
+  const navigate = useNavigate();
+
+  const handleRedirection = () => {
+    if (props.btnOffer === "Passer à la formule Gratuite") {
+      navigate('/');
+    } else if (props.btnOffer === "Passer à la formule Pro") {
+      navigate('/application/profil');
+    } else {
+      navigate('/application');
+    }
+
   }
 
   return (
@@ -62,9 +51,24 @@ const PricingProps = (props) => {
       </div>
       <span className='self-center w-[70%] text-center h-0.5 bg-[#cecece] mt-4'></span>
       
-      {/* <Link to="/signup" className='flex justify-center mt-4 p-2 rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5'> */}
-      <div className='flex justify-center mt-4 p-2 rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5'>
-        <button onClick={checkout}>{props.btnOffer}</button>
+      <div>
+        {user && user.email 
+          ? (
+              <button
+                onClick={handleRedirection} 
+                className='flex justify-center mt-4 p-2 w-full rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5 cursor-pointer'
+              >
+                {props.btnOffer}
+              </button>
+          ) : ( 
+              <Link to="/signup">
+                <button
+                  className='flex justify-center mt-4 p-2 w-full rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5 cursor-pointer'
+                >
+                  {props.btnOffer}
+                </button>
+              </Link>
+        )}
       </div>
     </main>
   )

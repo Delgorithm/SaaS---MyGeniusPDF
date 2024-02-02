@@ -11,6 +11,7 @@ import Profil from './Pages/Profil';
 import NoMatch from './Pages/NoMatch';
 import Success from './Pages/Success';
 import Cancel from './Pages/Cancel';
+import Abonnement from './Pages/Abonnement';
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/login' element={ <Login/>} />
         <Route path='/application' element={ <Application/>} />
         <Route path='/application/profil' element={<Profil />} />
+        <Route path='/application/abonnement' element={<Abonnement />} />
         <Route path='/account' element={ <Account/>} />
         <Route path='/paiement' element={ <PaymentStripe/>} />
       </Routes>

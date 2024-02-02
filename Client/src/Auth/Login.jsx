@@ -5,7 +5,6 @@ import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { auth, dbFireStore } from './Firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 
-
 // Icon for design
 import { CiMail } from "react-icons/ci";
 import { CiLock } from "react-icons/ci";
@@ -17,8 +16,6 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
-
-
   const { login } = UserAuth();
 
   const handleSubmit = async (e) => {
@@ -64,7 +61,7 @@ const Login = () => {
           uid: uid,
         });
       }
-      navigate('/account');
+      navigate('/application');
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
