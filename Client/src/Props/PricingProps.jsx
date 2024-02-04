@@ -12,7 +12,7 @@ const PricingProps = (props) => {
     if (props.btnOffer === "Passer à la formule Gratuite") {
       navigate('/');
     } else if (props.btnOffer === "Passer à la formule Pro") {
-      navigate('/application/profil');
+      window.location.href = 'https://buy.stripe.com/test_9AQeYs6Ec4uBbja5kk';
     } else {
       navigate('/application');
     }

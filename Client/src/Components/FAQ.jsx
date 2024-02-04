@@ -8,9 +8,8 @@ const FAQ = () => {
         <h2 id='faq' className='bg-gradient-to-b from-[#8B7EFF] to-[#9F54FF] text-transparent bg-clip-text text-4xl font-bold mb-8'>FAQ</h2>
         <section className='mx-24 border-[0.5px] bg-gradient-to-b from-[#fafafa] to-[#efefef] shadow-xl'>
           {FaqFullData.map((faqs) => (
-            <div className='m-2 flex flex-col'>
+            <div key={faqs.id} className='m-2 flex flex-col'>
               <FAQProps
-                key={faqs}
                 question={faqs.question}
                 answer={faqs.answer}
               />  
