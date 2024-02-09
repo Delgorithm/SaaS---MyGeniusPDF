@@ -10,11 +10,11 @@ const PricingProps = (props) => {
 
   const handleRedirection = () => {
     if (props.btnOffer === "Passer à la formule Gratuite") {
-      navigate('/');
+      window.location.href='https://buy.stripe.com/test_9AQbMgaUs6CJ2MEeUX';
     } else if (props.btnOffer === "Passer à la formule Pro") {
-      window.location.href = 'https://buy.stripe.com/test_9AQeYs6Ec4uBbja5kk';
+      window.location.href='https://buy.stripe.com/test_aEU8A4d2A0el0Ew7su';
     } else {
-      navigate('/application');
+      window.location.href='https://buy.stripe.com/test_6oE4jO5A82mt72U5kl';
     }
 
   }

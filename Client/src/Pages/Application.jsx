@@ -56,7 +56,7 @@ const Application = () => {
               <ul>
                 <li className='flex flex-col items-start gap-4 text-xl'>
                   <Link to="/application">
-                    <span className='flex justify-center items-center gap-2'>
+                    <span className='flex justify-center items-center gap-2 bg-[#6d79f9] p-3 rounded-2xl'>
                       <CiHome />
                       <p>Home</p>
                     </span>
