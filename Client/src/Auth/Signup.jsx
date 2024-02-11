@@ -49,11 +49,11 @@ const Signup = () => {
         password: password,
         uid: uid,
       });
-
+      await delay(2000) 
       navigate('/application');
-    } catch (e) {
-      setError(e.message);
-      console.log(e.message);
+    } catch (error) {
+      setError(error.message);
+      console.log(error.message);
     }
   };
   

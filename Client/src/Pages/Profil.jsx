@@ -94,7 +94,6 @@ const Profil = () => {
       <section className='flex flex-col justify-center w-5/6 h-screen bg-[#b9b9b9]'>
         <p>Profil</p>
       </section>
-
     </main>
   )
 }

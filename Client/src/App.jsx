@@ -8,9 +8,6 @@ import Application from './Pages/Application';
 import Profil from './Pages/Profil';
 import NoMatch from './Pages/NoMatch';
 import Abonnement from './Pages/Abonnement';
-import CheckoutForm from './Stripe/CheckoutForm';
-import Completion from './Stripe/Completion';
-import Success from './Stripe/Success';
 import Test from './Pages/ProductDisplay';
 
 
@@ -26,11 +23,6 @@ const App = () => {
         <Route path='/application/profil' element={<Profil />} />
         <Route path='/application/abonnement' element={<Abonnement />} />
         
-        {/* Route for Stripe */}
-        <Route path='/application/abonnement/checkoutform' element={<CheckoutForm />} />
-        <Route path='/application/abonnement/completion' element={<Completion/> } />
-        <Route path='/application/success' element={<Success />} />
-
         {/* Route test */}
         <Route path='/test' element={<Test />} />
 

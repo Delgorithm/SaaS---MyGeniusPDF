@@ -14,6 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
   const { login } = UserAuth();
@@ -61,6 +62,7 @@ const Login = () => {
           uid: uid,
         });
       }
+      await delay(2000);
       navigate('/application');
     } catch (error) {
       const errorCode = error.code;
