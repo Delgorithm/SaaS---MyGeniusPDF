@@ -2,8 +2,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref } from "firebase/database";
-import { getFirestore } from 'firebase/firestore';
 
 const apiKeyFirebase = import.meta.env.VITE_API_FIREBASE_KEY;
 const authDomainFirebase = import.meta.env.VITE_AUTH_KEY;
@@ -15,25 +13,18 @@ const appIdFirebase = import.meta.env.VITE_APP_KEY;
 const measurementIdFirebase = import.meta.env.VITE_MEASUREMENT_KEY;
 
 const firebaseConfig = {
-  apiKey: apiKeyFirebase,
-  authDomain: authDomainFirebase,
-  databaseURL: databaseUrlFirebase, 
-  projectId: projectIdFirebase,
-  storageBucket: storageBucketFirebase,
-  messagingSenderId: messagingSendedIdFirebase,
-  appId: appIdFirebase,
-  measurementId: measurementIdFirebase,
+	apiKey: apiKeyFirebase,
+	authDomain: authDomainFirebase,
+	databaseURL: databaseUrlFirebase,
+	projectId: projectIdFirebase,
+	storageBucket: storageBucketFirebase,
+	messagingSenderId: messagingSendedIdFirebase,
+	appId: appIdFirebase,
+	measurementId: measurementIdFirebase,
 };
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-// Realtime database
-const db = getDatabase(app);
-const userDataRef = ref(db, 'users/');
-
-// Firestore database
-const dbFireStore = getFirestore(app);
-
-export { app, analytics, auth, db, userDataRef, dbFireStore };
+export { app, analytics, auth };

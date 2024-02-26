@@ -8,12 +8,12 @@
 //   npm install stripe
 //   npm install express
 //
-// 3) Run the server on http://localhost:5173
+// 3) Run the server on http://localhost:4242
 //   node server.js
 
 // The library needs to be configured with your account's secret key.
 // Ensure the key is kept out of any version control system you might be using.
-const stripe = require('stripe')('sk_test_...');
+const stripe = require('stripe')('sk_test_51OMrFgFZFhrDlYoIvMeLH090tbhvZUo4GXrBtbAtoqraaiFlxhg9EEve7r5fmXeMwywPxWxyREimH8rtNQwpvYXk00vLpygjAJ');
 const express = require('express');
 const app = express();
 
@@ -35,9 +35,35 @@ app.post('/webhook', express.raw({type: 'application/json'}), (request, response
 
   // Handle the event
   switch (event.type) {
-    case 'invoice.payment_succeeded':
-      const invoicePaymentSucceeded = event.data.object;
-      // Then define and call a function to handle the event invoice.payment_succeeded
+    case 'checkout.session.async_payment_failed':
+      const checkoutSessionAsyncPaymentFailed = event.data.object;
+      console.log(checkoutSessionAsyncPaymentFailed);
+      // Then define and call a function to handle the event checkout.session.async_payment_failed
+      break;
+    case 'checkout.session.async_payment_succeeded':
+      const checkoutSessionAsyncPaymentSucceeded = event.data.object;
+      console.log(checkoutSessionAsyncPaymentSucceeded);
+      // Then define and call a function to handle the event checkout.session.async_payment_succeeded
+      break;
+    case 'checkout.session.completed':
+      const checkoutSessionCompleted = event.data.object;
+      console.log(checkoutSessionCompleted);
+      // Then define and call a function to handle the event checkout.session.completed
+      break;
+    case 'customer.subscription.created':
+      const customerSubscriptionCreated = event.data.object;
+      console.log(customerSubscriptionCreated);
+      // Then define and call a function to handle the event customer.subscription.created
+      break;
+    case 'customer.subscription.deleted':
+      const customerSubscriptionDeleted = event.data.object;
+      console.log(customerSubscriptionDeleted);
+      // Then define and call a function to handle the event customer.subscription.deleted
+      break;
+    case 'customer.subscription.updated':
+      const customerSubscriptionUpdated = event.data.object;
+      console.log(customerSubscriptionUpdated);
+      // Then define and call a function to handle the event customer.subscription.updated
       break;
     // ... handle other event types
     default:

@@ -9,26 +9,12 @@ import { TiArrowUp } from "react-icons/ti";
 import { Link } from 'react-router-dom';
 import { RiAttachment2 } from "react-icons/ri";
 import PDFContent from '../Components/PDFContent';
-import { UserAuth } from '../Context/AuthContext' 
 import { useNavigate } from 'react-router-dom';
 
 const Application = () => {
 
-  const {user, logout} = UserAuth();
   const navigate = useNavigate()
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/');
-      console.log("Vous vous êtes déconnecté(e)");
-    } catch (e) {
-      console.log(e.message)
-    }
-  }
-
   const [pdfFile, setPdfFile] = useState(null);
-
   const [prompt, setPrompt] = useState('');
   const [response, setResponse] = useState('');
 
@@ -92,15 +78,6 @@ const Application = () => {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className='mb-10 flex justify-around items-center'>
-            <p className='text-xl'>Email : {user && user.email}</p>
-            <button 
-              onClick={handleLogout}
-              className='text-3xl'
-            >
-              <CiLogout />
-            </button>
           </div>
         </div>
       </section>

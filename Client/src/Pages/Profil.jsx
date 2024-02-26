@@ -3,25 +3,12 @@ import { CiHome } from "react-icons/ci";
 import { GoPerson } from "react-icons/go";
 import { CiCreditCard2 } from "react-icons/ci";
 import { CiSettings } from "react-icons/ci";
-import { CiLogout } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import { UserAuth } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Profil = () => {
 
-  const {user, logout} = UserAuth();
   const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/');
-      console.log("Vous vous êtes déconnecté(e)");
-    } catch (e) {
-      console.log(e.message)
-    }
-  }
 
   return (
     <main className='flex h-screen overflow-hidden'>
@@ -77,15 +64,6 @@ const Profil = () => {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className='mb-10 flex justify-around items-center'>
-            <p className='text-xl'>Email : {user && user.email}</p>
-            <button 
-              onClick={handleLogout}
-              className='text-3xl'
-            >
-              <CiLogout />
-            </button>
           </div>
         </div>
       </section>

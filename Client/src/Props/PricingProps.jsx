@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { UserAuth } from '../Context/AuthContext';
 import { useNavigate } from "react-router-dom";
 
 const PricingProps = (props) => {
 
-  const {user} = UserAuth();
   const navigate = useNavigate();
 
   const handleRedirection = () => {
@@ -50,26 +48,6 @@ const PricingProps = (props) => {
         </div>
       </div>
       <span className='self-center w-[70%] text-center h-0.5 bg-[#cecece] mt-4'></span>
-      
-      <div>
-        {user && user.email 
-          ? (
-              <button
-                onClick={handleRedirection} 
-                className='flex justify-center mt-4 p-2 w-full rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5 cursor-pointer'
-              >
-                {props.btnOffer}
-              </button>
-          ) : ( 
-              <Link to="/signup">
-                <button
-                  className='flex justify-center mt-4 p-2 w-full rounded-lg bg-gradient-to-b from-[#92919A] to-[#020014] transition duration-150 text-white hover:opacity-80 active:translate-y-0.5 cursor-pointer'
-                >
-                  {props.btnOffer}
-                </button>
-              </Link>
-        )}
-      </div>
     </main>
   )
 }

@@ -7,23 +7,11 @@ import { CiLogout } from "react-icons/ci";
 import { Link } from 'react-router-dom';
 import PricingProps from '../Props/PricingProps';
 import PricingFullData from '../Data/PricingData';
-import { UserAuth } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Abonnement = () => {
 
-  const {user, logout} = UserAuth();
   const navigate = useNavigate();
-
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/');
-      console.log("Vous vous êtes déconnecté(e)");
-    } catch (e) {
-      console.log(e.message)
-    }
-  }
 
   const firstSecondPrice = PricingFullData.slice(0,2);
   const thirdPrice = PricingFullData.slice(2);
@@ -82,15 +70,6 @@ const Abonnement = () => {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className='mb-10 flex justify-around items-center'>
-            <p className='text-xl'>Email : {user && user.email}</p>
-            <button 
-              onClick={handleLogout}
-              className='text-3xl'
-            >
-              <CiLogout />
-            </button>
           </div>
         </div>
 
